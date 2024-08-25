@@ -62,6 +62,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (string.IsNullOrEmpty(DestinationAddress))
         {
             var directory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
             DestinationAddress = $"{directory}/{Guid.NewGuid()}.txt";
         }
 
