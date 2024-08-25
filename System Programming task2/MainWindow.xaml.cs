@@ -62,7 +62,6 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (string.IsNullOrEmpty(DestinationAddress))
         {
             var directory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
             DestinationAddress = $"{directory}/{Guid.NewGuid()}.txt";
         }
 
@@ -82,7 +81,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 File.AppendAllText(DestinationAddress, text[i].ToString());
                 ProgressValue = i + 1;
                 Percentage = (int)(ProgressValue * 100 / FileSize);
-                Thread.Sleep(50);
+                Thread.Sleep(10);
             }
         }).Start();
         cancel = false;
