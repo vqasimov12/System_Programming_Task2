@@ -50,6 +50,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             DestinationAddress = selectedFilePath;
         ProgressValue = 0;
         Percentage = 0;
+        cancel=false;
     }
 
     private void CopyButton_Click(object sender, RoutedEventArgs e)
@@ -62,7 +63,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         if (string.IsNullOrEmpty(DestinationAddress))
         {
             var directory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            DestinationAddress = $"{directory}/{Guid.NewGuid()}.txt";
+            DestinationAddress = $"{directory}/{Path.GetFileName(CopyAddress)}.txt";
         }
 
         if (File.Exists(DestinationAddress))
